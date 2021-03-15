@@ -1,43 +1,22 @@
+exports.min = function min(array) {
+    if (!array || array.length <= 0) return 0;
+    array.sort((prev, next) => prev - next);
 
-exports.min = function min (array) {
-  if (array == underfined || Array.isArray(array) === false){
-    return 0;
-  } 
+    return array[0];
+};
 
-  var m = array[0];
-    for (let i = 0; i < array.length; i++){
-      if (array[i] < m){
-        m = array[i];
-      }
-    }
-    return m;     
-}
+exports.max = function max(array) {
+    if (!array || array.length <= 0) return 0;
+    array.sort((prev, next) => prev - next);
 
-exports.max = function max (array) {
-  if (array == underfined || Array.isArray(array) === false){
-    return 0;
-  } 
-  var n = array[0];
-  for (let i = 0; i < array.length; i++){
-    if (array[i] > n){
-      n = array[i];
-    }
-  }
-  return n;
-}
+    return array[array.length - 1];
+};
 
-exports.avg = function avg (array) {
-
-  if (array == underfined || Array.isArray(array) === false){
-    return 0;
-  } 
-
-  var s = 0;
-  var a = 0;
-for (let i = 0; i < array.length; i++){
-    s = s + array[i];
-  }
-  a = s / array.length;
-  return a;
-}
-
+exports.avg = function avg(array) {
+    if (!array || array.length <= 0) return 0;
+    let res =
+        array.reduce((acc, el) => {
+            return acc + el;
+        }) / array.length;
+    return res;
+};
